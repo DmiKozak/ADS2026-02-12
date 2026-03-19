@@ -31,6 +31,15 @@ public class B_Sheduler {
         //Начало и конец событий могут совпадать.
         List<Event> result;
         result = new ArrayList<>();
+        java.util.Arrays.sort(events, (a,b) -> Integer.compare(a.stop, b.stop));
+
+        int currentTime = from;
+        for (Event event : events) {
+            if (event.start >= currentTime && event.stop <= to) {
+                result.add(event);
+                currentTime = event.stop;
+            }
+        }
         //ваше решение.
 
 
