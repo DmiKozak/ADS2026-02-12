@@ -64,10 +64,10 @@ public class B_Huffman {
 
         for (int i = 0; i < count; i++) {
 
-            String letter = scanner.next();          // читаем "a:"
-            char symbol = letter.charAt(0);          // берём саму букву 'a'
-            String code = scanner.next();            // читаем "0"
-            codeToChar.put(code, symbol);            // сохраняем "0" → 'a'
+            String letter = scanner.next();
+            char symbol = letter.charAt(0);
+            String code = scanner.next();
+            codeToChar.put(code, symbol);
         }
 
 
@@ -79,14 +79,14 @@ public class B_Huffman {
         for (int i = 0; i < encoded.length(); i++) {
             buffer.append(encoded.charAt(i)); // добавляем очередной бит в буфер
 
-            // Проверяем: есть ли такой код в нашей таблице?
+
             if (codeToChar.containsKey(buffer.toString())) {
-                // Нашли! Добавляем букву в результат
+
                 result.append(codeToChar.get(buffer.toString()));
-                // Сбрасываем буфер — начинаем собирать следующий код
+
                 buffer.setLength(0);
             }
-            // Если не нашли — продолжаем накапливать биты
+
         }
 
 
