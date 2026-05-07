@@ -78,28 +78,28 @@ public class C_HeapMax {
             int size = heap.size();
 
             while (true) {
-                int left  = 2 * i + 1; // индекс левого ребёнка
-                int right = 2 * i + 2; // индекс правого ребёнка
-                int largest = i;       // предполагаем, что текущий — наибольший
+                int left  = 2 * i + 1;
+                int right = 2 * i + 2;
+                int largest = i;
 
-                // Если левый ребёнок существует И больше текущего
+
                 if (left < size && heap.get(left) > heap.get(largest)) {
                     largest = left;
                 }
-                // Если правый ребёнок существует И больше текущего наибольшего
+
                 if (right < size && heap.get(right) > heap.get(largest)) {
                     largest = right;
                 }
 
-                // Если текущий уже наибольший — куча восстановлена, стоп
+
                 if (largest == i) break;
 
-                // Меняем местами текущий и наибольший ребёнок
+
                 Long tmp = heap.get(i);
                 heap.set(i, heap.get(largest));
                 heap.set(largest, tmp);
 
-                // Продолжаем просеивание уже на новой позиции
+
                 i = largest;
             }
             return i;
